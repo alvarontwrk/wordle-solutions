@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 from flask import Flask, jsonify
 from wordle_solutions import get_wordle_app, parse_javascript_data
@@ -14,4 +14,7 @@ def get_all_solutions():
 
 @app.route("/<date>")
 def get_day_solution(date):
-    return jsonify({date: solutions[date]})
+    try:
+        return jsonify({date: solutions[date]})
+    except:
+        return "", 404
