@@ -1,6 +1,6 @@
 # wordle-solutions
 
-API that provide Wordle (ES) solutions.
+API that provides Wordle (ES) solutions.
 
 ## Usage
 
