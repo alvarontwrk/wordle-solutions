@@ -2,6 +2,8 @@
 
 API that provides Wordle (ES) solutions.
 
+From 2022-01-07 to 2023-09-15.
+
 ## Usage
 
 ```bash
