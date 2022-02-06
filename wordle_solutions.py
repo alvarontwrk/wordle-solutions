@@ -39,10 +39,13 @@ def decrypt(ct, password, key_length=32):
     return res
 
 def get_wordle_app():
-    r = requests.get(base_url)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
+    }
+    r = requests.get(base_url, headers=headers)
     print(r.text, file=sys.stderr)
     m = re.search(r"/_next/static/chunks/pages/_app-[a-f0-9]+.js", r.text)
-    r = requests.get(base_url + m.group(0))
+    r = requests.get(base_url + m.group(0), headers=headers)
     return r.text
 
 

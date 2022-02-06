@@ -1,6 +1,6 @@
 FROM python:3.11.0a5-alpine3.15
 
-RUN apk --update add gcc libc-dev
+RUN apk --update add gcc libc-dev bash
 
 WORKDIR /app
 
