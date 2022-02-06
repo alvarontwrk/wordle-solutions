@@ -10,7 +10,7 @@ from Crypto import Random
 from datetime import date, timedelta
 
 base_url = "https://wordle.danielfrg.com"
-base_url = "http://0x404.com:8080"
+#base_url = "http://0x404.com:8080"
 
 def derive_key_and_iv(password, salt, key_length, iv_length):
     d = d_i = b""
