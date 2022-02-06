@@ -10,7 +10,6 @@ from Crypto import Random
 from datetime import date, timedelta
 
 base_url = "https://wordle.danielfrg.com"
-#base_url = "http://0x404.com:8080"
 
 def derive_key_and_iv(password, salt, key_length, iv_length):
     d = d_i = b""
@@ -43,7 +42,6 @@ def get_wordle_app():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
     }
     r = requests.get(base_url, headers=headers)
-    print(r.text, file=sys.stderr)
     m = re.search(r"/_next/static/chunks/pages/_app-[a-f0-9]+.js", r.text)
     r = requests.get(base_url + m.group(0), headers=headers)
     return r.text
