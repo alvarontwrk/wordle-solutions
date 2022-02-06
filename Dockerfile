@@ -1,9 +1,13 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.8-alpine
+FROM python:3.11.0a5-alpine3.15
 
-RUN apk --update add vim gcc libc-dev
+RUN apk --update add gcc libc-dev
 
-COPY ./requirements.txt /var/www/requirements.txt
+WORKDIR /app
 
-RUN pip install --upgrade pip
+COPY . ./
 
-RUN pip install -r /var/www/requirements.txt
+RUN pip install -r /app/requirements.txt
+
+ENV PORT 80
+
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi:app

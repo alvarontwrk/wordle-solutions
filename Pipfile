@@ -7,6 +7,7 @@ name = "pypi"
 Flask = "*"
 requests = "*"
 pycryptodome = "*"
+gunicorn = "*"
 
 [dev-packages]
 
