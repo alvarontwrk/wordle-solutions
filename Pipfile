@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
+Flask = "*"
 requests = "*"
-pycrypto = "*"
+pycryptodome = "*"
 
 [dev-packages]
 
