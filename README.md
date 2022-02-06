@@ -25,6 +25,9 @@ Recommendation: use jq to parse.
 
 ![Output example](img/output-example.png)
 
+## Why?
+Weekend project. Unlike original Wordle version, solutions are encrypted. Seemed funny to script.
+
 ## Future work (not me)
 Maybe a front-end?
 
