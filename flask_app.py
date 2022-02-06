@@ -18,3 +18,7 @@ def get_day_solution(date):
         return jsonify({date: solutions[date]})
     except:
         return "", 404
+
+@app.route("/status")
+def get_status():
+    return jsonify({"status": "OK"})
