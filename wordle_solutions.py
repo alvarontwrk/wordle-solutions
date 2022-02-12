@@ -42,15 +42,17 @@ def get_wordle_app():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36"
     }
     r = requests.get(base_url, headers=headers)
-    m = re.search(r"/_next/static/chunks/pages/_app-[a-f0-9]+.js", r.text)
+    m = re.search(r"/_next/static/chunks/971-[a-f0-9]+.js", r.text)
     r = requests.get(base_url + m.group(0), headers=headers)
     return r.text
 
 
 def parse_javascript_data(js):
-    m = re.search(r"o=\[\"[^\]]+\]", js)
-    str_arr = m.group(0)
-    str_arr = str_arr.lstrip("o=[")
+    var_name = "V"
+    var_pos = 1
+    m = re.findall(r"{}=\[\"[^\]]+\]".format(var_name), js)
+    str_arr = m[var_pos]
+    str_arr = str_arr.lstrip("{}=[".format(var_name))
     str_arr = str_arr.rstrip("]")
     enc_words = [i.strip('"') for i in str_arr.split(",")]
 
